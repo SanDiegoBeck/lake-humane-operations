@@ -1,0 +1,41 @@
+application: lhsops
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /_ah/login_required
+  script: /bin/do_openid_login.py
+
+- url: /stylesheets
+  static_dir: stylesheets
+- url: /scripts
+  static_dir: scripts
+- url: /images
+  static_dir: images
+
+- url: /Menu
+  script: /bin/menu.py
+
+- url: /Adopt
+  script: /bin/adopt.py
+- url: /SupportUs
+  script: /bin/support.py
+- url: /Volunteer
+  script: /bin/volunteer.py
+- url: /Events
+  script: /bin/events.py
+- url: /Programs
+  script: /bin/programs.py
+- url: /Services
+  script: /bin/services.py
+- url: /About
+  script: /bin/about.py
+- url: /PetTips
+  script: /bin/pettips.py
+- url: /Contact
+  script: /bin/contact.py                
+
+- url: /.*
+  script: /bin/main.py
+  

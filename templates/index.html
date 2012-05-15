@@ -1,0 +1,50 @@
+{% extends "_base.html" %}
+
+{% block extra_scripts %}
+<script type="text/javascript" language="JavaScript">
+$(document).ready(function(){
+
+	var images = new Array(
+		'/images/slide1.jpg',
+		'/images/slide2.jpg',
+		'/images/slide3.jpg',
+		'/images/slide4.jpg'
+	);
+
+	var preload = new Array();
+	var i;
+	
+	for(i = 0; i < images.length; i++ ){
+		preload[i] = new Image();
+		preload[i].src = images[i];
+	}
+		   
+    var current_img = 1;
+    var intID = setInterval(changeImg, 7000);   
+    
+ 	function changeImg(){
+ 		$('#slides').animate({opacity: 0}, 1000, function(){
+ 			$(this).css('background','url(' + preload[current_img++%preload.length].src +') top center no-repeat');
+ 		}).animate({opacity: 1}, 1000);
+ 	}
+});
+</script>
+{% endblock extra_scripts %}
+
+{% block page_title %}Lake Humane Operations - Welcome!{% endblock %}
+
+{% block breadcrumbs %}Home{% endblock breadcrumbs %}
+
+{% block content_center %}			
+<div id="content-left">
+	<div id="slides" class="border-round" style="background: url(images/slide1.jpg) no-repeat; height: 304px; width: 475px;"></div>
+</div>
+<div id="content-right">
+	Since 1937, the Lake Humane Society has been dedicated to the welfare and protection of animals.
+	<br/>
+	Operating as a private, non-profit organization in Lake County, Ohio and the surrounding metropolitan areas, 
+	we are focused on the relief of suffering and the prevention of cruelty and abuse to animals. We also strive 
+	to inform and educate children and adults in the humane and respectful treatment of all living creatures. 
+	Please consider donating. Your donation will help save an animals life!
+</div>	
+{% endblock content_center %}

@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+
+{% block page_title %}Lake Humane Operations - Please Login!{% endblock %}
+
+{% block breadcrumbs %}Login{% endblock breadcrumbs %}
+
+{% block content_center %}
+<p>
+	<div>Welcome! Please login with your preferred OpenID Provider:</div>	
+		<div>
+		<table width="100%">
+			{% for login in logins.items %} 
+			<tr>				
+    			<td align="center">
+    				<a href="{{ login.1 }}">{{ login.0 }}</a>
+				</td>    				
+			</tr>	                                       
+			{% endfor %}
+		</table>
+	</div>
+</p>
+{% endblock content_center %}
+	
